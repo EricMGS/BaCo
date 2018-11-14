@@ -1,12 +1,11 @@
 #############################################################################################################
-#                                                Author: EricMGS                                            #
-#                                                 . .-. .. -.-.                                             #
-#                                              Date: marco de 2018                                          #
+#                           Desenvolvedores: EricMGS, FabioHF, LCapalbo, OsmarV, DivanPS                    #
+#                                              Data: Março de 2018                                          #
 #                                                                                                           #
-#   Programa que converte base numericas, da base 2 ate 62. Tem como valor de saida maximo 100 caracteres   #
+#   Programa que converte bases numéricas, da base 2 até 62. Tem como valor de saída máximo 100 dígitos     #
 #############################################################################################################
 
-#interface grafica
+#Interface gráfica
 
 from BaCo import *
 from tkinter import Tk, Label, Spinbox, Entry, messagebox, ttk, CENTER
@@ -44,11 +43,8 @@ result.place (relx = 0.5, rely = 0.6, anchor = CENTER)
 final_result = Label (window, bg = bg_color)
 final_result.place (relx = 0.5, rely = 0.7, anchor = CENTER)
 
-signature = Label (window, bg = bg_color, text = './.-./../-.-./--/--./...')
-signature.place (relx = 0.9, rely = 0.9, anchor = CENTER)
-
 #spinbox
-def clicked ():
+def clicked (): #quando a spinbox mudar de valor o texto que identifica o intervalo de dígitos de entrada muda
     lblvalue.configure (text = 'Valor: (0 - ' +  digitos[int(base1.get()) - 1] + ')')
 
 base1 = Spinbox(window, from_ = 2, to = 62, width = 5, bg = bg_box, state = 'readonly', command = clicked)
@@ -62,7 +58,7 @@ value = Entry (window, width = 110, bg = bg_box, justify = 'center')
 value.place (relx = 0.5, rely = 0.5, anchor = CENTER)
 
 #buttons
-def convert():
+def convert(): #quando o botão de conversão é clicado verifica-se erros de conversão e de limite de dígitos
     if Converte (value.get(), int(base1.get()), int(base2.get())) == 'Erro':
         return messagebox.showerror ('Erro 1', 'Valor inválido')
         
@@ -71,7 +67,7 @@ def convert():
     
     if len(res) > 100:
         final_result.configure (text = '')
-        return messagebox.showerror ('Erro 2', 'O resultado é muito grande\nMáximo: 100 digitos')
+        return messagebox.showerror ('Erro 2', 'O resultado é muito grande\nMáximo: 100 dígitos')
 
 convert_btn = ttk.Button (window, text = 'Converter', command = convert, style = 'TButton')
 convert_btn.place (relx = 0.3, rely = 0.9, anchor = CENTER)
@@ -85,4 +81,4 @@ def out ():
 out_btn = ttk.Button (window, text = 'Sair', command = out, style = 'TButton')
 out_btn.place(relx = 0.7, rely = 0.9, anchor = CENTER)
 
-window.mainloop ()
+window.mainloop () #executa a janela
