@@ -23,11 +23,11 @@ def Converte (entrada, base_entrada, base_saida):
     #converte a entrada em decimal
     decimal = 0
     expoente = 0
-    for digito in range(len(entrada),0, -1):
-        if DigitoDec (entrada [digito - 1]) == 'Erro':
+    for x in range(len(entrada) - 1, 0, -1):
+        if DigitoDec (entrada [x]) == 'Erro':
             return 'Erro'
         else:
-            decimal += base_entrada ** expoente * DigitoDec(entrada[digito - 1])
+            decimal += DigitoDec(entrada[x]) * base_entrada ** expoente
             expoente += 1
     
     #converte decimal para a saida

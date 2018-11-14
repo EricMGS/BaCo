@@ -8,6 +8,7 @@
 
 #interface grafica
 
+from BaCo import *
 from tkinter import Tk, Label, Spinbox, Entry, messagebox, ttk, CENTER
 
 #colors
@@ -63,14 +64,14 @@ value.place (relx = 0.5, rely = 0.5, anchor = CENTER)
 #buttons
 def convert():
     if Converte (value.get(), int(base1.get()), int(base2.get())) == 'Erro':
-        return messagebox.showerror ('Erro 1', 'Valor invalido')
+        return messagebox.showerror ('Erro 1', 'Valor inválido')
         
     res = Converte (value.get(), int(base1.get()), int(base2.get()))
     final_result.configure (text = res + '\n')
     
     if len(res) > 100:
         final_result.configure (text = '')
-        return messagebox.showerror ('Erro 2', 'O resultado e muito grande\nMaximo: 100 digitos')
+        return messagebox.showerror ('Erro 2', 'O resultado é muito grande\nMáximo: 100 digitos')
 
 convert_btn = ttk.Button (window, text = 'Converter', command = convert, style = 'TButton')
 convert_btn.place (relx = 0.3, rely = 0.9, anchor = CENTER)
