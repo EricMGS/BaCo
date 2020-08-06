@@ -16,7 +16,7 @@ bg_box = 'gray95'
 
 #window
 window = Tk()
-window.wm_iconbitmap('BaCo.ico') 
+#window.wm_iconbitmap('./BaCo.ico') 
 window.title("BaCo - BaseConverter")
 window.geometry ('700x400')
 window.resizable (0, 0)
@@ -24,7 +24,7 @@ window.configure (bg = bg_color)
 
 #style
 style=ttk.Style()
-style.theme_use('vista')
+#style.theme_use('vista')
 style.configure ('TButton')
 
 #labels
